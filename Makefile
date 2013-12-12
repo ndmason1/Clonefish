@@ -1,22 +1,20 @@
 PROG     = clonefish
 
-#SRCS     = $(wildcard *.cpp)
-SRCS     = main.cpp
+SRCS     = cipher.cpp util.cpp main.cpp 
 
 OBJS     = $(SRCS:.cpp=.o)
-CXXFLAGS = -O2 -Wall -ansi # -Werror to force warnings as errors
-LDLIBS   = 
+CXXFLAGS = -O2 -Wall -ansi
+LDLIBS   = -lcrypto				# link with the openssl library
 INCLUDE  =
-DEPFILE  = deps.mak
 
 .PHONY: clean
 
 $(PROG): $(OBJS)
-	$(CXX) $^ $(LDLIBS) -o $@
+	$(CXX) $^ -o $@ $(LDLIBS)
 
 # How to make the object files:
 .cpp.o:
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $< $(LDLIBS)
 
 deps:
 	$(CXX) -MM $(CXXFLAGS) $(SRCS) > $(DEPFILE)
@@ -25,4 +23,3 @@ deps:
 clean:
 	$(RM) $(OBJS) $(PROG)
 
--include $(DEPFILE)
