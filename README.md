@@ -1,8 +1,6 @@
 Clonefish
 =========
 
-COMP 4109 term project
-
 A file encryption program based on an implementation of Bruce Schneier's Blowfish block cipher.
 
 To build from source, type make in the source directory. The executable is generated in the same directory.
