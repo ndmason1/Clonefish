@@ -5,11 +5,7 @@ A file encryption program based on an implementation of Bruce Schneier's Blowfis
 
 To build from source, type make in the source directory. The executable is generated in the same directory.
 
-Note that this program uses the openssl library (specifically, the MD5 hash function).
-In Ubuntu, one can simply execute the following commands to obtain this:
-
-	sudo apt-get install openssl
-	sudo apt-get install libssl
+Note that this program uses the openssl library.
 
 The Clonefish file encryption tool runs in one of two modes:
 
